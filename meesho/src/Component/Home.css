@@ -161,5 +161,51 @@
         height:280px ;
     }
 
+    #body{
+        border: 1px solid black;
+        width: 100%;
+        margin-top: 65px;
+    
+    }
+    #left{
+        border: 1px solid black;
+        width: 30%;
+      
+
+    }
+    #left>h2,p{
+        text-align: center;
+        padding-bottom: 25px;
+        
+    }
+    /* #short{
+        border: 1px solid black;
+        text-align: center;
+        font-size: 15px;
+        height: 40px;
+        width: 60%;
+        margin: auto;
+        font-weight: bold;
+        padding-top: 10px;
+    } */
+    #topcetegory{
+        display: flex;
+        width: 100%;
+
+    }
+    #ceteegory{
+        border: 1px solid gray;
+        margin: auto;
+     
+        /* width: 90%; */
+        margin-top: 50px;
+
+    }
+    #ceteegory>div{
+        border-bottom: 1px solid gray;
+        margin: auto;
+       margin-top: 50px;
+       width: 90%; 
+    }
 
 

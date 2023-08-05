@@ -62,7 +62,139 @@ const Home = () => {
         <p></p>
 
     </div>
-    <div id="productMore">
+
+
+
+
+    {/* ********************************* */}
+
+
+
+    <div id="body">
+           
+           <div id="topcetegory">
+               <div id="left">
+                   <h2>All product</h2>
+                   <p>Showing 81-100 out of 10000 products</p> 
+           <div id="ceteegory">
+               <div>
+                   <span>FILTERS  <br/>1000+ Products
+                       </span>
+               </div>
+               <div>
+                   <h4>Category</h4>
+                   <input type="checkbox"/>
+                   <span>Meesho Mall  <select style= {{border: "none",color: "gray"}}>
+                       <option style={{border:"none"}}></option></select></span>
+               </div>
+               <div>
+                    <h4>gender</h4>
+                  <div>Women</div>
+               
+                  <div>Girl</div>
+                
+               </div>
+               <div>
+               <span>Colour
+                   <select style={{border: "none",color: "gray"}}>
+                   <option style={{border:"none"}}></option></select></span>
+
+           </div>
+              
+               <div>
+                   
+                   <span>Fabric
+                       <select style={{border: "none",color: "gray"}}>
+                       <option style={{border:"none"}}></option></select></span>
+
+               </div>
+              
+                   
+               <div>
+                   <span>Size
+                       <select style={{border: "none",color: "gray"}}>
+                       <option style={{border:"none"}}></option></select></span>
+
+               </div>
+               <div>
+                   <span>Discount
+                       <select style={{border: "none",color: "gray"}}>
+                       <option style={{border:"none"}}></option></select></span>
+
+               </div>
+               <div>
+                   <span>Range
+                       <select style={{border: "none",color: "gray"}}>
+                       <option style={{border:"none"}}></option></select></span>
+
+               </div>
+               <div>
+                   <span>Price
+                       <select style={{border: "none",color: "gray"}}>
+                       <option style={{border:"none"}}></option></select></span>
+
+               </div>
+               <div>
+                   <span>Combo
+                       <select style={{border: "none",color: "gray"}}>
+                       <option style={{border:"none"}}></option></select></span>
+
+               </div>
+               <div>
+                   <span>Print Or Pattern Type
+                       <select style={{border: "none",color: "gray"}}>
+                       <option style={{border:"none"}}></option></select></span>
+
+               </div>
+               <div>
+                   <span>Ornamentation
+                       <select style={{border: "none",color: "gray"}}>
+                       <option style={{border:"none"}}></option></select></span>
+
+               </div>
+               <div>
+                   <span>Bottom Pattern Type
+                       <select style={{border: "none",color: "gray"}}>
+                       <option style={{border:"none"}}></option></select></span>
+               </div>
+               <div>
+                   <span>Surface Styling
+                       <select style={{border: "none",color: "gray"}}>
+                       <option style={{border:"none"}}></option></select></span>
+               </div>
+               <div>
+                   <span>Fit/ Shape
+                       <select style={{border: "none",color: "gray"}}>
+                       <option style={{border:"none"}}></option></select></span>
+               </div>
+               <div>
+                   <span>Top Type
+                       <select style={{border: "none",color: "gray"}}>
+                       <option style={{border:"none"}}></option></select></span>
+               </div>
+               <div>
+                   <span>Waist Rise
+                       <select style={{border: "none",color: "gray"}}>
+                       <option style={{border:"none"}}></option></select></span>
+               </div>
+               <div>
+                   <span>Bottom Type
+                       <select style={{border: "none",color: "gray"}}>
+                       <option style={{border:"none"}}></option></select></span>
+               </div>
+               <div>
+                   <span> Type
+                       <select style={{border: "none",color: "gray"}}>
+                       <option style={{border:"none"}}></option></select></span>
+               </div>
+              
+       </div>
+   </div>
+
+
+
+
+    {/* <div id="productMore">
         <div id="productinfo">
             <span>Sort by :<b>Relevance</b> </span>
               <p>Products For You</p>
@@ -80,7 +212,7 @@ const Home = () => {
             </div>
            
 
-        </div>
+        </div> */}
         <div id="images">
             <div>
                 <img src="https://images.meesho.com/images/products/22486015/1a522_400.webp"/>
@@ -219,7 +351,8 @@ const Home = () => {
         
         
         
-        </div>
+         </div>
+         </div>
   )
 }
 
