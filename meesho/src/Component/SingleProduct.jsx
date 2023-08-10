@@ -112,8 +112,8 @@ const SingleProduct= () => {
     }
   }
   return (
-    <div  style={{width: "100%",border: "2px solid green" }}>
-      <h2  style={{color: "red"}}>Single Product</h2>
+    <div  style={{width: "100%" ,height : "1000px", marginTop: "80px" }}>
+      {/* <h2  style={{color: "red"}}>Single Product</h2> */}
       {allowUpdate ? (
         <form onSubmit={handleSubmit}>
           <lable>Product Name:</lable>
@@ -166,16 +166,50 @@ const SingleProduct= () => {
       ) : (
         []
       )}
-      <div  style={{width: "90%",border: "2px solid yellow", display:"flex"}}>
-    
-        <img    src={single.image}/>
-       
 
-        <div style={{border: "red", width: "10%" , }}>
+      {/* ******************* */}
+
+      <div  style={{width: "100%", display:"flex" , justifyContent: "space-around" , flexWrap: "wrap"}}>
+    
+        <img  style={{border: "5px solid red"}}  src={single.image}/>
+        <div style={{border: "5px solid red", width: "50%" , }}>
         <h2>Name:{single.name}</h2>
         <h2>Price:{single.price} </h2>
         <p>Cetegory:{single.Cetegory}</p>
-        <button  style={{ width:"100%", height: "40px" ,backgroundColor: "black", color: "white" }}  onClick={addcart}>add to cart</button>
+        <button  style={{ width:"30%", height: "40px" ,backgroundColor: "black", color: "white" ,borderRadius:"50px",marginLeft: "30px"}}  onClick={addcart}>add to cart</button>
+        
+        <button   style={{ width:"30%", height: "40px" ,backgroundColor: "black", color: "white" ,borderRadius:"50px",marginLeft: "30px"}} onClick={Update}>Update Product</button>
+        <div id='slectsize'>
+                        <p>Select Size</p>
+                        <p>Select Giude</p>  
+                    </div>
+                     <div id='sizings'>
+                        <div><p>XL</p></div>
+                         <div><p>X</p></div> 
+                         <div><p>L</p></div>
+                         <div><p>XL</p></div> 
+                         <div><p>M</p></div>
+                         <div><p>S</p></div>
+                          </div>
+
+
+                          <div id='viewsmaller'>
+                     <span>Size out of stock!<b> View Similar</b></span><br/>
+                      <p> Model is 6'0"/185 cms and is wearing an M size
+                     100% Cotton, Machine wash</p>
+                     </div>
+                        <div id='avalible-offer'>
+                            <h4>Available Offers</h4>
+                            <div id='offersimage'>
+                                <div id='offersimage2'>
+                                    <img src='https://assets.tatacliq.com/medias/sys_master/images/27678831411230.png'/>
+                                    </div>
+                                     
+                                     <div id='offfersimage2-text'>
+                                     <p>10% Instant Discount on Kotak Bank Credit Cards only.</p>
+                                     <span>Min Purchase: ₹2500Max Discount: ₹1000<b>more</b></span>
+                                     </div>
+                                   </div>
       
         
         </div>
@@ -189,7 +223,7 @@ const SingleProduct= () => {
       </div>
       {userData?.role === "seller" ? (
         <div>
-          <button onClick={Update}>Update</button>
+          {/* <button onClick={Update}>Update</button> */}
         </div>
       ) : (
         <div>
@@ -202,35 +236,35 @@ const SingleProduct= () => {
                                   <div className="imagediv">
                                     <div>
                                   <img src='https://img.tatacliq.com/images/i7/97Wx144H/MP000000009494526_97Wx144H_202105042219391.jpeg'/>
-                                  <p>Monte Carlo Black Regular Fit Self Design Cardigan
+                                  <p  className="style">Monte Carlo Black Regular Fit Self Design Cardigan
                                       ₹2789
                                      ₹3985(30% off)</p>
                                     </div>
                                     <div>
                                     <img src='https://img.tatacliq.com/images/i8/97Wx144H/MP000000013765836_97Wx144H_202207130826031.jpeg'/>
 
-                                    <p>Monte Carlo Black Regular Fit Self Design Cardigan
+                                    <p className="style">Monte Carlo Black Regular Fit Self Design Cardigan
                                       ₹2789
                                      ₹3985(30% off)</p>
                                     </div>
                                     <div>
                                     <img src='https://img.tatacliq.com/images/i8/97Wx144H/MP000000012047259_97Wx144H_202202070409221.jpeg'/>
 
-                                    <p>Monte Carlo Black Regular Fit Self Design Cardigan
+                                    <p className="style">Monte Carlo Black Regular Fit Self Design Cardigan
                                       ₹2789
                                      ₹3985(30% off)</p>
                                     </div>
                                     <div>
                                     <img src='https://img.tatacliq.com/images/i8/97Wx144H/MP000000014807504_97Wx144H_202210092344481.jpeg'/>
 
-                                    <p>Monte Carlo Black Regular Fit Self Design Cardigan
+                                    <p className="style">Monte Carlo Black Regular Fit Self Design Cardigan
                                       ₹2789
                                      ₹3985(30% off)</p>
                                     </div>
                                     <div>
                                     <img src='https://img.tatacliq.com/images/i8/97Wx144H/MP000000014807582_97Wx144H_202210092346511.jpeg'/>
 
-                                    <p>Monte Carlo Black Regular Fit Self Design Cardigan
+                                    <p className="style">Monte Carlo Black Regular Fit Self Design Cardigan
                                       ₹2789
                                      ₹3985(30% off)</p>
                                     </div>
@@ -238,14 +272,14 @@ const SingleProduct= () => {
                                     <div>
                                     <img  src="https://images.meesho.com/images/products/287562063/uhrry_400.webp"/>
 
-                                    <p>Monte Carlo Black Regular Fit Self Design Cardigan
+                                    <p className="style">Monte Carlo Black Regular Fit Self Design Cardigan
                                       ₹2789
                                      ₹3985(30% off)</p>
                                     </div>
                                     <div>
                                     <img  src="https://images.meesho.com/images/products/284621073/dbnyy_400.webp"/>
 
-                                    <p>Monte Carlo Black Regular Fit Self Design Cardigan
+                                    <p className="style">Monte Carlo Black Regular Fit Self Design Cardigan
                                       ₹2789
                                      ₹3985(30% off)</p>
                                     </div>
@@ -264,10 +298,10 @@ const SingleProduct= () => {
 
     
     </div>
-    // ************************
+  
 
 
-
+</div>
 
   );
 };

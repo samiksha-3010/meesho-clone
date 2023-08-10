@@ -178,7 +178,7 @@ const AllProduct = () => {
 
       {products && products.map((pro) =>(
      <div  onClick= { ()=>redirect (pro.id)} style={{width:"20%", border:"2px solid gray", height: "400px", }}  key={pro.id}>
-     <img  style ={{width:"100%" , height:"300px"}} src={pro.image}/>
+     <img  style ={{width:"100%" , height:"300px",border: "1px solid red"}} src={pro.image}/>
 
      <h3>Name:{pro.name} </h3>
      <h3>Cetegory:{pro.cetegory}</h3>

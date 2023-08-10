@@ -8,7 +8,7 @@ const Home = () => {
     <div>
 
 <div id="navbar2">
-            <p   onClick={() => router('/all-product')}>Women Ethanic</p> 
+            <p   onClick={() => router('/all-product')}>All product</p> 
             <p>Women Western</p>
             <p>Men</p>
             <p>Kids </p>

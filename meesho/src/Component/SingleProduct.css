@@ -73,7 +73,6 @@
 .fallow{
     width: 15%;
     height: 40px;
-    /* border: 1px solid red; */
     
     margin-top: 10px;
     background-color: palevioletred;   
@@ -95,4 +94,94 @@ height: 300px;
 .imagediv>div>img{
     width: 100%;
     height: 250px;  
+}
+.style{
+    color: red;
+}
+
+#slectsize{
+    width: 80%;
+    /* border: 1px solid red; */
+    margin-left: 30px;
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+#slectsize>p:nth-child(2){
+    color: red;
+}
+#sizings{
+    width: 60%;
+    height: 80px;
+    /* border: 1px solid gray; */
+    margin-left: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+#sizings>div{
+    border: 1px solid black;
+    width: 12%;
+    height: 50px;
+    border-radius: 15px;
+    margin-top: 12px;
+    text-align: center;
+    
+}
+#sizings>div>p{
+    padding-top: 12px;
+}
+
+#viewsmaller{
+    width: 80%;
+    height: 80px;
+  border-bottom: 1px solid gray;
+    margin-left: 30px;
+    margin-top: 30px;
+}
+#viewsmaller>span>b{
+    color: red;
+}
+#viewsmaller>p{
+    padding-top: 15px;
+}
+#avalible-offer{
+    width: 80%;
+    margin-left: 40px;
+    margin-top: 30px;
+  border-bottom: 1px solid gray;
+}
+#avalible-offer>h4{
+    padding-left: 20px;
+    padding-top: 20px;
+}
+#offersimage{
+    width: 90%;
+    /* height: 90px; */
+    margin-left: 40px;
+    margin-top: 30px;
+    /* border: 1px solid red; */
+     display: flex;
+    justify-content: space-between;    
+}
+#offersimage2{
+    width: 10%;
+    /* border: 1px solid red; */
+   
+} 
+
+#offersimage>img{
+    padding-top: 30px;
+    padding-left: 40px;    
+} 
+#offfersimage2-text{
+    width: 90%;
+    /* border: 1px solid red; */
+    font-size: 15px;
+}
+#offfersimage2-text>span{
+    color: gray;
+}
+#offfersimage2-text>span>b{
+    color: blue;
+    padding-left: 10px;
 }
