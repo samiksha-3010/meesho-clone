@@ -33,9 +33,9 @@ const Home = () => {
                         <p>Easy Return</p>
 
                     </div>
-                    <div id="button">
+                    {/* <div id="button">
                     <button>Download the Meesho App</button>
-                </div>
+                </div> */}
                 </div>
              </div>
               <div id="right">
