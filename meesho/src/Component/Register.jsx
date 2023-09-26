@@ -22,7 +22,7 @@ const Register = () => {
         event.preventDefault();
         if (userData.name && userData.email && userData.password && userData.confirmPassword && userData.role) {
             if (userData.password === userData.confirmPassword) {
-                const response = await axios.post("http://localhost:8000/register", { userData });
+                const response = await axios.post("/register", { userData });
                 if (response.data.success) {
                     setUserData({ name: "", email: "", password: "", confirmpassword: "", role: "Buyer" })
                     router('/login')
@@ -39,8 +39,6 @@ const Register = () => {
         }
     }
     
-
-
   return (
     <div  style={{ marginTop: "90px"}}>
          <h2>Register</h2>

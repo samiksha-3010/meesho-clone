@@ -44,7 +44,7 @@ const Login = () => {
         event.preventDefault();
         if ( userData.email && userData.password) {
           
-                const response = await axios.post("http://localhost:8000/login", { userData });
+                const response = await axios.post("/login", { userData });
                 if (response.data.success) {
                 
     
