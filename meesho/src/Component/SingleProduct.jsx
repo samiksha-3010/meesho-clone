@@ -284,23 +284,9 @@ const SingleProduct= () => {
                                      ₹3985(30% off)</p>
                                     </div>
                                   </div>
-
-        
-        
         </div>
-
-        
-
-
-
       )}
-    
-
-    
     </div>
-  
-
-
 </div>
 
   );

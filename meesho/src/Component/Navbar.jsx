@@ -1,16 +1,18 @@
-import React from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import './Navbar.css'
+import {AuthContext} from "../Component/Context/AuthContext"
+import { toast } from "react-hot-toast";
 
-const Navbar = () => {
 
 
-
-    
+const Navbar = () => { 
     const router = useNavigate();
-
+    const { state, dispatch } = useContext(AuthContext)
   return (
+
     <div>
+        
                 <div id="navbar">
             <div>
                 <img onClick={() => router('/')} src="https://tse2.mm.bing.net/th?id=OIP.th1ysM5zvhU5bq8N8Bo_0QHaBw&pid=Api&P=0&h=180"/>
@@ -23,15 +25,15 @@ const Navbar = () => {
                 <i class="fa-solid fa-mobile-screen-button"></i>
                 Download App
             </div>
-            <div  onClick={() => router('/add-product')}>Add Product </div>
+            <div  onClick={() => router('/add-product')}>Add Product</div>
+           
            
             <div>
                 <i class="fa-regular fa-user fa-xl"  onClick={() => router('/profile')}></i>
-                {/* <p> peofile</p> */}
+               
                     <i class="fa-solid fa-cart-shopping fa-xl "  onClick={() => router('/cart')}></i>
-                        {/* <p>cart</p> */}
+                    
                         <i class="fa-solid fa-heart fa-xl"></i>
-                        {/* <p>Wishlist</p> */}
                         {/* <p onClick={() => router('/login')} >Sign/up</p> */}
 
             </div>
@@ -44,13 +46,16 @@ const Navbar = () => {
 export default Navbar
 
 
-
-
 // import React, { useContext, useEffect, useState } from "react";
+
 // import { useNavigate } from "react-router-dom";
+// import { v4 as uuidv4 } from "uuid";
 // import { toast } from "react-hot-toast";
-// import api from "./ApiConfig";
-// import AuthContext from "./Context/AuthContext";
+// import "./Cssfile/AddPro.css";
+// import "./Cssfile/HomeNavbar.css";
+
+// import api from "./ApiConfig/Index"
+// import{AuthContext} from "./Context/AuthContext"
 
 // const Navbar = () => {
 //   const { state, dispatch } = useContext(AuthContext);
@@ -334,7 +339,8 @@ export default Navbar
 //             <div id="napic">
 //               <img
 //                 onClick={() => router("/")}
-//                 src="https://cdni.autocarindia.com/utils/imageresizer.ashx?n=http://img.haymarketsac.in/campaignindia/campaign-india/content/20230608033843_meesholead.png&w=800&h=520&q=70&c=1"
+//                 src="https://uploads-ssl.webflow.com/62bc395da3c33ed00dcc1317/634bd1950007a1468123fe05_logo%20meesho%20-p-500.png"
+//                 alt="Meesho Logo"
 //               />
 //             </div>
 //             <div id="nasearch">
@@ -397,3 +403,7 @@ export default Navbar
 // };
 
 // export default Navbar;
+
+
+
+
