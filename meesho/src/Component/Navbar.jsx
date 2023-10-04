@@ -25,15 +25,18 @@ const Navbar = () => {
                 <i class="fa-solid fa-mobile-screen-button"></i>
                 Download App
             </div>
-            <div  onClick={() => router('/add-product')}>Add Product</div>
+           
+            <p style={{marginTop:"25px"}}>Become a Supplier</p>
            
            
             <div>
-                <i class="fa-regular fa-user fa-xl"  onClick={() => router('/profile')}></i>
+                <i class="fa-regular fa-user fa-xl"  onClick={() => router('/login')}></i>
                
                     <i class="fa-solid fa-cart-shopping fa-xl "  onClick={() => router('/cart')}></i>
                     
+                    
                         <i class="fa-solid fa-heart fa-xl"></i>
+                        <div  onClick={() => router('/add-product')}>Add </div>
                         {/* <p onClick={() => router('/login')} >Sign/up</p> */}
 
             </div>
@@ -293,7 +296,7 @@ export default Navbar
 //                   onChange={handleChange}
 //                 />
 //                 <br />
-//                 <button value="Add Product" onMouseLeave={addClose}>Add Product</button>
+//                 <button value="Add Product" onMouseLeave={addClose}>Add </button>
 //               </fieldset>
 //             </form>
 //           </div>
@@ -388,7 +391,7 @@ export default Navbar
 //         </div>
 //       </div>
 //       <div id="navdown">
-//         <p onClick={() => router("/allproducts")}>Women Ethnic</p>
+//         <p onClick={() => router("/allproducts")}>All product</p>
 //         <p>Women Western</p>
 //         <p>Men</p>
 //         <p>Kids</p>

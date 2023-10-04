@@ -8,6 +8,7 @@ const Home = () => {
     <div>
 
 <div id="navbar2">
+  
             <p   onClick={() => router('/all-product')}>All product</p> 
             <p>Women Western</p>
             <p>Men</p>
@@ -25,16 +26,16 @@ const Home = () => {
                   <h2>Lowest Prices
                     Best Quality Shopping</h2>
                     <div id="left2">
-                        <i class="fa-light fa-truck"></i>
-                        <p>Free Delivary</p>
+                        <i class="fa-light fa-truck"></i><br/>
+                        <p>Free Delivary</p><br/>
                         <i class="fa-regular fa-money-bill-wave"></i>
-                        <p>Cash on Delivary</p>
+                        <p>Cash on Delivary</p><br/>
                         <i class="fa-sharp fa-light fa-bag-shopping"></i>
                         <p>Easy Return</p>
 
                     </div>
-                    {/* <div id="button">
-                    <button>Download the Meesho App</button>
+                    {/* <div id="button"> */}
+                    {/* <button>Download the Meesho App</button>
                 </div> */}
                 </div>
              </div>
@@ -349,8 +350,7 @@ const Home = () => {
       
     </div>
         
-        
-        
+
          </div>
          </div>
   )

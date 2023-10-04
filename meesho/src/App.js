@@ -11,6 +11,7 @@ import Cart from './Component/Cart';
 import AddProduct from './Component/AddProduct';
 import AllProduct from './Component/AllProduct';
 import SingleProduct from './Component/SingleProduct';
+import Hom from "./Component/HomePage.jsx/Hom"
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
     <div>
       <Navbar/>
       <Routes>
+      <Route exact path='/hom'element={<Hom/>}/>
       <Route exact path='/'element={<Home/>}/>
       <Route exact path='/register'element={<Register/>}/>
       <Route exact path='/login'element={<Login/>}/>
