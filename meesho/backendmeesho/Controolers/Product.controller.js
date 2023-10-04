@@ -4,7 +4,7 @@ import UserModal from "../Modals/User.Modals.js";
 
 export const addProduct = async (req, res) => {
   try {
-    const { name, price, image, category } = req.body.productData;
+    const { name, price, image, category } = req.body;
     const { token } = req.body;
     if (!name || !price || !image || !category || !token) return res.status(404).json({ success: false, message: "All fields are mandtory.." })
     

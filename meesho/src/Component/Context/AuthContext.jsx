@@ -1,6 +1,8 @@
 
 import axios from "axios";
+// import api from "../ApiConfig/Index"
 import { createContext, useEffect, useReducer } from "react";
+import api from "../ApiConfig/Index";
 
 export const AuthContext = createContext();
 
@@ -24,7 +26,9 @@ const reducer = (state, action) => {
     useEffect(() => {
         async function getCurrentUserData() {
             var token = JSON.parse(localStorage.getItem("token"));
-            const response = await axios.post("http://localhost:8000/get-current-user", { token });
+            const response = await api.post("/get-current-user", { token });
+
+            // const response = await axios.post("http://localhost:8000/get-current-user", { token });
             if (response.data.success) {
                 dispatch({
                     type: "LOGIN",

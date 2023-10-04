@@ -2,7 +2,9 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import {toast} from 'react-hot-toast'
-import axios from 'axios'
+import api from './ApiConfig/Index'
+
+
 
 const Register = () => {
      const [userData,setUserData] = useState({name: "",email: "",password: "",confirmPassword:"",role: "Buyer"})
@@ -22,7 +24,7 @@ const Register = () => {
         event.preventDefault();
         if (userData.name && userData.email && userData.password && userData.confirmPassword && userData.role) {
             if (userData.password === userData.confirmPassword) {
-                const response = await axios.post("/register", { userData });
+                const response = await api.post("/register", { userData });
                 if (response.data.success) {
                     setUserData({ name: "", email: "", password: "", confirmpassword: "", role: "Buyer" })
                     router('/login')
