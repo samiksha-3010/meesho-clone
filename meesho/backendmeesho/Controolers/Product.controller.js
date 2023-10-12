@@ -1,6 +1,7 @@
 import jwt from "jsonwebtoken";
 import ProductModal from "../Modals/Product.modal.js";
 import UserModal from "../Modals/User.Modals.js";
+import UserModals from "../Modals/User.Modals.js";
 
 export const addProduct = async (req, res) => {
   try {
@@ -152,7 +153,7 @@ export const addComments = async(req,res)=>{
 
         const userId = decodedData.userId;
 
-        const user = await UserModal.findById(userId)
+        const user = await UserModals.findById(userId)
 
     const updateComments = await ProductModal.findByIdAndUpdate(productId,{$push:{comments:{comments:comments,name:user.name}}},{new:true})
 
@@ -192,7 +193,7 @@ export const addToCart = async (req, res) => {
       if (!userId) return res.status(404).json({ success: false, message: "Usur id is mandtory.." })
 
 
-      const user = await UserModal.findByIdAndUpdate(userId, { $push: { cart: productId } })
+      const user = await UserModals.findByIdAndUpdate(userId, { $push: { cart: productId } })
       if (!user) return res.status(404).json({ success: false, message: "User not found.." })
 
 
@@ -210,7 +211,7 @@ export const allCartProducts = async (req, res) => {
       if (!userId) return res.status(404).json({ success: false, message: "User id is mandtory.." })
 
 
-      const user = await UserModal.findById(userId)
+      const user = await UserModals.findById(userId)
       if (!user) return res.status(404).json({ success: false, message: "User not found.." })
       var finalData = [];
       var array = user?.cart;

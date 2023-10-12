@@ -1,4 +1,4 @@
-import ProductModal from "../Modals/Product.modal.js";
+import UserModals from "../Modals/User.Modals.js";
 import UserModal from "../Modals/User.Modals.js";
 import jwt from "jsonwebtoken";
 
@@ -31,7 +31,7 @@ export const unBlockUser = async (req, res) => {
   try {
     const { userId } = req.body;
 
-    const user = await UserModal.findByIdAndUpdate(
+    const user = await UserModals.findByIdAndUpdate(
       userId,
       { isBlocked: false },
       { new: true }
@@ -56,7 +56,7 @@ export const blockProduct = async (req, res) => {
   try {
     const { productId } = req.body;
 
-    const product = await ProductModal.findByIdAndUpdate(
+    const product = await ProductModals.findByIdAndUpdate(
       productId,
       { isBlocked: true },
       { new: true }
@@ -81,7 +81,7 @@ export const unBlockProduct = async (req, res) => {
   try {
     const { productId } = req.body;
 
-    const product = await ProductModal.findByIdAndUpdate(
+    const product = await ProductModals.findByIdAndUpdate(
       productId,
       { isBlocked: false },
       { new: true }
@@ -106,7 +106,7 @@ export const verifyProduct = async (req, res) => {
   try {
     const { productId } = req.body;
 
-    const product = await ProductModal.findByIdAndUpdate(
+    const product = await ProductModals.findByIdAndUpdate(
       productId,
       { isVerified: true },
       { new: true }
@@ -143,7 +143,7 @@ export const getAllBuyers = async (req, res) => {
 
         // const userId = decodedData.userId;
 
-        const buyers = await UserModal.find({ role: "Buyer" })
+        const buyers = await UserModals.find({ role: "Buyer" })
 
         if (buyers.length) {
             return res.status(200).json({ status: "success", user:buyers })
@@ -169,7 +169,7 @@ export const getAllSellers = async (req, res) => {
 
         // const userId = decodedData.userId;
 
-        const sellers = await UserModal.find({ role: "Seller" })
+        const sellers = await UserModals.find({ role: "Seller" })
 
         if (sellers.length) {
             return res.status(200).json({ status: "success", user:sellers })
@@ -185,7 +185,7 @@ export const getAllSellers = async (req, res) => {
 
 export const getAllProducts = async (req, res) => {
     try {
-      const products = await ProductModal.find({});
+      const products = await ProductModals.find({});
       if (products.length) {
         return res.status(200).json({ status: "Success", products: products });
       }
@@ -199,7 +199,7 @@ export const getAllProducts = async (req, res) => {
 
   export const getVerifiedProducts = async (req, res) => {
     try {
-      const products = await ProductModal.find({isVerified:"true"});
+      const products = await ProductModals.find({isVerified:"true"});
       if (products.length) {
         return res.status(200).json({ status: "Success", products: products });
       }
@@ -213,7 +213,7 @@ export const getAllProducts = async (req, res) => {
 
   export const getUnVerifiedProducts = async (req, res) => {
     try {
-      const products = await ProductModal.find({isVerified:"false"});
+      const products = await ProductModals.find({isVerified:"false"});
       if (products.length) {
         return res.status(200).json({ status: "Success", products: products });
       }
@@ -227,7 +227,7 @@ export const getAllProducts = async (req, res) => {
 
   export const getBlockedProducts = async (req, res) => {
     try {
-      const products = await ProductModal.find({isBlocked:"true"});
+      const products = await ProductModals.find({isBlocked:"true"});
       if (products.length) {
         return res.status(200).json({ status: "Success", products: products });
       }

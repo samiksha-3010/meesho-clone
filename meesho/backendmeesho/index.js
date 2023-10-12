@@ -3,6 +3,8 @@ import dotenv from 'dotenv'
 import mongoose from 'mongoose';
 import cors from "cors"
 import {  Login, Register, getCurrentUser,} from "./Controolers/User.Controolers.js"
+import { addProduct, addToCart, allProduct, getYourProducts, updateYourProduct } from './Controolers/Product.controller.js';
+import { checkSeller } from './Meedlewares/All.Meedlewares.js';
 
 
 
@@ -18,6 +20,20 @@ app.get("/", (req, res) => {
 app.post("/register", Register)
 app.post("/login", Login)
 app.post("/get-current-user",getCurrentUser )
+
+app.post("/add-product", checkSeller, addProduct);
+
+app.get("/all-products", allProduct);
+
+// app.post("/get-number", getNumber)
+// app.post("/send-otp", sendOtp)
+// app.post("/verify-otp", verifyOtp)
+
+app.post("/get-your-products", checkSeller, getYourProducts);
+app.post("/update-your-product", checkSeller, updateYourProduct);
+app.post("/add-cart", addToCart);
+
+
 
 
 
