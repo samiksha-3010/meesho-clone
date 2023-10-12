@@ -1,10 +1,14 @@
 import { useEffect, useState } from 'react';
+import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
+import api from './ApiConfig/Index';
 
 const Cart = () => {
 
     const [finalPrice, setFinalPrice] = useState(0);
     const [userCart, setUserCart] = useState([]);
+    const [cartProducts, setCartProducts] = useState([]);
+
     const router = useNavigate()
 
     // console.log(userCart, "- userCart")
@@ -64,6 +68,29 @@ const Cart = () => {
         alert("Product will deliver soon, Thank you for shopping.")
         router('/')
     }
+
+    const removecartItem = async (productId) => {
+        try {
+          const token = JSON.parse(localStorage.getItem("token"));
+          // console.log(token, "token here");
+          const response = await api.post(
+            "remove-cart-items",
+            {
+              productId,
+              token,
+            }
+          );
+          console.log(response,"data here");
+          if (response.data.success) {
+            toast.success("item removed succesfully");
+            setCartProducts(response.data.user);
+          } else {
+            toast.error( response.data.message);
+          }
+        } catch (error) {
+          console.log(error);
+        }
+      };
     return (
         <div  style={{marginTop: "100px"}}>
             <div style={{ display: "flex", justifyContent: "space-around" }}>
@@ -84,6 +111,9 @@ const Cart = () => {
                     <p  style={{color: "red"}}>Total MRP : {finalPrice + finalPrice} $ </p>
                     <p style={{color: "red"}}>Price after 50% Discount : {finalPrice} $ </p>
                     <button onClick={buyProducts} style={{ width: "150px", height: "40px", backgroundColor: "red", color: "white" ,borderRadius: "40px", marginLeft: "70px", marginBottom:"30px"}}>Buy Products</button>
+                    <button  style={{ width: "150px", height: "40px", backgroundColor: "red", color: "white" ,borderRadius: "40px", marginLeft: "70px", marginBottom:"30px"}}>Remove</button>
+                    {/* <p onClick={()=>removecartItem(pro._id)} style={{fontWeight: "600", marginTop: "10px"}}>X REMOVE</p> */}
+
                 </div>
             </div>
         </div >
@@ -92,13 +122,15 @@ const Cart = () => {
 
 export default Cart;
 
-
 // import React, { useContext, useEffect, useState } from "react";
 // import { toast } from "react-hot-toast";
 // import { useNavigate } from "react-router-dom";
-// // import '../Components/CSS Files/Cart.css'
-// import {AuthContext} from "./Context/AuthContext"
-// import api from "./ApiConfig/Index"
+// import AuthContext from "./Context/AuthContext";
+// import api from "./ApiConfig/Index";
+// import "./Cssfile/cart.css"
+
+
+
 
 // const Cart = () => {
 //   const [finalprice, setFinalPrice] = useState(0);
@@ -123,7 +155,7 @@ export default Cart;
 //     if (state?.user?._id) {
 //       getCartProduct();
 //     }
-//   }, [state]);
+//   }, [state, cartProducts]);
 
 //   console.log(cartProducts, "cartProducts here");
 
@@ -158,6 +190,29 @@ export default Cart;
 //       setFinalPrice(totalprice);
 //     }
 //   }, [cartProducts]);
+
+//   const removecartItem = async (productId) => {
+//     try {
+//       const token = JSON.parse(localStorage.getItem("token"));
+//       // console.log(token, "token here");
+//       const response = await api.post(
+//         "remove-cart-items",
+//         {
+//           productId,
+//           token,
+//         }
+//       );
+//       console.log(response,"data here");
+//       if (response.data.success) {
+//         toast.success("item removed succesfully");
+//         setCartProducts(response.data.user);
+//       } else {
+//         toast.error( response.data.message);
+//       }
+//     } catch (error) {
+//       console.log(error);
+//     }
+//   };
   
 //   return (
 //     <div id='cascreen'>
@@ -169,8 +224,8 @@ export default Cart;
 //           </div>
           
 //           <div>
-//           {cartProducts &&
-//           cartProducts.map((pro) => (
+//           {cartProducts.length >0  &&
+//           cartProducts?.map((pro) => (
 //           <div>
 //             <div>
 //               <div>
@@ -180,7 +235,7 @@ export default Cart;
 //                 <p style={{fontWeight: "600"}}>{pro.name}</p>
 //                 <p>Size: L   Qty: 1</p>
 //                 <p>₹{pro.price}</p>
-//                 <p style={{fontWeight: "600", marginTop: "10px"}}>X REMOVE</p>
+//                 <p onClick={()=>removecartItem(pro._id)} style={{fontWeight: "600", marginTop: "10px"}}>X REMOVE</p>
 //               </div>
 //               <div>
 //                 <p>EDIT</p>
@@ -221,3 +276,4 @@ export default Cart;
 // }
 
 // export default Cart
+
