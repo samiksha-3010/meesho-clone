@@ -37,7 +37,7 @@ const Navbar = () => {
                     
                         <i class="fa-solid fa-heart fa-xl"></i>
                         <div  onClick={() => router('/add-product')}>Add </div>
-                        {/* <p onClick={() => router('/login')} >Sign/up</p> */}
+                        <p onClick={() => dispatch({ type: 'LOGOUT' })}>Logout</p>
 
             </div>
         </div>
