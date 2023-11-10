@@ -3,9 +3,9 @@ import bcrypt from 'bcrypt';
 import jwt from "jsonwebtoken";
 import UserModals from '../Modals/User.Modals.js';
 
-export const Register = async (req, res) => {
+export const Register = async (req, res) =>{
     try {
-        const { userData } = req.body;
+        const { userData } = req.body.userData;
         // const { name, email, password, role } = req.body.userData;
         const { name, email, password, role } = userData;
         if (!name || !email || !password || !role) return res.json({ success: false, message: "All fields are mandtory.." })
