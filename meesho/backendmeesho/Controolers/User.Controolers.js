@@ -1,7 +1,7 @@
 
 import bcrypt from 'bcrypt';
 import jwt from "jsonwebtoken";
-import UserModals from '../Modals/User.Modals.js';
+import UserModals from '../Modals/User.Modals.js'; 
 
 export const Register = async (req, res) =>{
     try {
