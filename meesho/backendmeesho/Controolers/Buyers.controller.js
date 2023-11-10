@@ -26,7 +26,6 @@ export const addCart = async (req, res) => {
 export const getCartProducts = async (req, res) => {
     try {
         const { token } = req.body;
-
         const decodedData = jwt.verify(token, process.env.JWT_SECRET);
         const userId = decodedData?.userId;
 
