@@ -3,39 +3,52 @@ import bcrypt from 'bcrypt';
 import jwt from "jsonwebtoken";
 import UserModals from '../Modals/User.Modals.js'; 
 
-export const Register = async (req, res) =>{
+export const Register = async (req, res) => {
     try {
-        const { userData } = req.body.userData;
-        // const { name, email, password, role } = req.body.userData;
-        const { name, email, password, role } = userData;
-        if (!name || !email || !password || !role) return res.json({ success: false, message: "All fields are mandtory.." })
-
-        const isEmailExist = await UserModals.find({ email: email })
-        if (isEmailExist.length) {
-            return res.json({ success: false, message: "Email is exist, try diffrent email." })
-        }
-
-        const hashedPassword = await bcrypt.hash(password, 10);
-
-        const user = new UserModals({ name, email, password: hashedPassword, role });
-
-        await user.save();
-
-        return res.json({ success: true, message: "User registered Successfully." })
-
+      const { userData } = req.body;
+      const { name, email, password, role } = req.body;
+      if (!name || !email || !password || !role)
+        return res.json({
+          success: false,
+          message: "All Feilds are Mandatory!",
+        });
+  
+      const isEmailExist = await UserModals.find({ email: email });
+      if (isEmailExist.length) {
+        return res.json({
+          success: false,
+          message: "Email already exists! Try a new one.",
+        });
+      }
+  
+      const hashPassW = await bcrypt.hash(password, 10);
+  
+      const user = new UserModals({
+        name:name,
+        email:email,
+        password: hashPassW,
+        role:role,
+      });
+  
+      await user.save();
+  
+      return res.json({
+        success: true,
+        message: "User Registered Successfully!",
+        user:user
+      });
     } catch (error) {
-        return res.json({ success: false, message: error })
+      return res.json({ success: false, message: error.message});
     }
-}
-
-
+  };
 
 export const Login = async (req, res) => {
     try {
-        const { email, password } = req.body;
+          const { email, password } = req.body;
+        // const { userData } = req.body;
         if (!email || !password) return res.json({ success: false, message: "All fields are mandtory.." })
 
-        const user = await UserModals.findOne({ email })
+        const user = await UserModals.findOne({ email:email })
         if (!user) return res.json({ success: false, message: "User not found.." })
 
         if (user.isBlocked) {

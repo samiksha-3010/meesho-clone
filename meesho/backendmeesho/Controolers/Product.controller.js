@@ -188,21 +188,21 @@ export const getSingleProductData = async (req, res) => {
 
 export const addToCart = async (req, res) => {
   try {
-      const { productId, userId } = req.body;
-      if (!productId) return res.status(404).json({ success: false, message: "Product id is mandtory.." })
-      if (!userId) return res.status(404).json({ success: false, message: "Usur id is mandtory.." })
+    const { productId, userId } = req.body;
+    if (!productId) return res.status(404).json({ success: false, message: "Product id is mandtory.." })
+    if (!userId) return res.status(404).json({ success: false, message: "User id is mandtory.." })
 
 
-      const user = await UserModals.findByIdAndUpdate(userId, { $push: { cart: productId } })
-      if (!user) return res.status(404).json({ success: false, message: "User not found.." })
+    const user = await UserModals .findByIdAndUpdate(userId, { $push: { cart: productId } })
+    if (!user) return res.status(404).json({ success: false, message: "User not found.." })
 
 
-      return res.status(200).json({ success: true })
+    return res.status(200).json({ success: true })
 
-  } catch (error) {
-      console.log(error, "error")
-      return res.status(500).json({ success: false, error: error.message })
-  }
+} catch (error) {
+    console.log(error, "error")
+    return res.status(500).json({ success: false, error: error.message })
+}
 }
 
 export const allCartProducts = async (req, res) => {
