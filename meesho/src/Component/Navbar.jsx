@@ -4,15 +4,12 @@ import './Navbar.css'
 import {AuthContext} from "../Component/Context/AuthContext"
 import { toast } from "react-hot-toast";
 
-
-
 const Navbar = () => { 
     const router = useNavigate();
     const { state, dispatch } = useContext(AuthContext)
   return (
 
     <div>
-        
                 <div id="navbar">
             <div>
                 <img onClick={() => router('/')} src="https://tse2.mm.bing.net/th?id=OIP.th1ysM5zvhU5bq8N8Bo_0QHaBw&pid=Api&P=0&h=180"/>
@@ -31,12 +28,10 @@ const Navbar = () => {
            
             <div>
                 <i class="fa-regular fa-user fa-xl"  onClick={() => router('/login')}></i>
-               
                     <i class="fa-solid fa-cart-shopping fa-xl "  onClick={() => router('/cart')}></i>
-                    
-                    
-                        <i class="fa-solid fa-heart fa-xl"></i>
-                        <div  onClick={() => router('/add-product')}>Add </div>
+                
+                        {/* <i class="fa-solid fa-heart fa-xl"></i> */}
+                        <div  onClick={() => router('/add-product')}>Add Product </div>
                         <p onClick={() => dispatch({ type: 'LOGOUT' })}>Logout</p>
 
             </div>
@@ -54,8 +49,8 @@ export default Navbar
 // import { useNavigate } from "react-router-dom";
 // import { v4 as uuidv4 } from "uuid";
 // import { toast } from "react-hot-toast";
-// import "./Cssfile/AddPro.css";
-// import "./Cssfile/HomeNavbar.css";
+// import './Navbar.css'
+// // import "./Cssfile/HomeNavbar.css";
 
 // import api from "./ApiConfig/Index"
 // import{AuthContext} from "./Context/AuthContext"
@@ -118,7 +113,7 @@ export default Navbar
 //           });
 //           if (response.data.success) {
 //             setProductData({ name: "", price: "", image: "", category: "" });
-//             router("/yourproduct");
+//             router("/your-product");
 //             toast.success(response.data.message);
 //           }
 //         } catch (error) {
@@ -218,7 +213,7 @@ export default Navbar
 //                   <p>
 //                     <b>Hello  {state?.user?.name}</b>
 //                   </p>
-//                   <p>+9199******43</p>
+//                   <p>+18591859099</p>
 //                 </div>
 //                 <div>
 //                   <i onClick={proopen} class="fa-regular fa-pen-to-square fa-xl"></i>
@@ -391,7 +386,7 @@ export default Navbar
 //         </div>
 //       </div>
 //       <div id="navdown">
-//         <p onClick={() => router("/allproducts")}>All product</p>
+//         <p onClick={() => router("/all-product")}>All product</p>
 //         <p>Women Western</p>
 //         <p>Men</p>
 //         <p>Kids</p>

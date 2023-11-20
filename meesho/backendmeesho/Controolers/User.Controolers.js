@@ -6,7 +6,7 @@ import UserModals from '../Modals/User.Modals.js';
 export const Register = async (req, res) => {
     try {
       const { userData } = req.body;
-      const { name, email, password, role } = req.body;
+      const { name, email, password, role } = req.body.userData;
       if (!name || !email || !password || !role)
         return res.json({
           success: false,
@@ -44,7 +44,7 @@ export const Register = async (req, res) => {
 
 export const Login = async (req, res) => {
     try {
-          const { email, password } = req.body;
+          const { email, password } = req.body.userData;
         // const { userData } = req.body;
         if (!email || !password) return res.json({ success: false, message: "All fields are mandtory.." })
 
