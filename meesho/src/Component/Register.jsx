@@ -2,7 +2,8 @@
 import React, { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import {toast} from 'react-hot-toast'
-import api from './ApiConfig/Index'
+import './Register.css'
+// import api from './ApiConfig/Index'
 import AuthContext from './Context/AuthContext'
 import axios from 'axios'
 
@@ -47,8 +48,16 @@ const Register = () => {
     }
     
   return (
-    <div  style={{ marginTop: "90px"}}>
-         <h2>Register</h2>
+    <div style={{ marginTop: "90px"}}>
+         <div id="logscreen">
+         <div id="logbody">
+         <div>
+          <img src="https://images.meesho.com/images/marketing/1661417516766.webp" />
+        </div>
+        <div>
+          <p>Register to create profile</p>
+        </div>
+        <div id="logform">
          <form onSubmit={handleSubmit}>
                 <label>Name</label><br />
                 <input value={userData.name} type='text' name='name' onChange={handleChange} /><br />
@@ -65,6 +74,9 @@ const Register = () => {
                 <input value={userData.confirmPassword} type='Password' name='confirmPassword' onChange={handleChange} /><br />
                 <input type='submit' value='Register' /><br />
             </form>
+            </div>
+            </div>
+            </div>
     </div>
   )
 }

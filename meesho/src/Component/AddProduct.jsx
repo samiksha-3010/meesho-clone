@@ -81,7 +81,7 @@
 
 import React, { useContext, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-import { v4 as uuidv4 } from 'uuid';
+// import { v4 as uuidv4 } from 'uuid';
 import AuthContext from './Context/AuthContext';
 import toast from 'react-hot-toast';
 import axios from 'axios';
@@ -105,8 +105,8 @@ const AddProduct = () => {
   };
 
   function selectRole(event){
-            console.log(event.target.value, "-role")
-            setProductData({...productData,["cetegory"]:event.target.value})
+            // console.log(event.target.value, "-category")
+            setProductData({...productData,["category"]:event.target.value})
            }
 
   const handleSubmit = async (event) => {
@@ -128,7 +128,7 @@ const AddProduct = () => {
         // });
         if (response.data.success) {
           setProductData({ name: "", price: "", image: "", category: "" });
-          router("/yourproducts");
+          router("/your-product");
           toast.success(response.data.message);
         }
       } catch (error) {
@@ -138,7 +138,7 @@ const AddProduct = () => {
       toast.error("All fields are mandtory.");
     }
   };
-  // console.log(productData, "productData")
+  console.log(productData, "productData")
     
   return (
     <div>
@@ -174,6 +174,8 @@ const AddProduct = () => {
                     <option value="Kids">Kids</option>
                     <option value="Electronics">Electronics</option>
                 </select><br />
+
+                
           <label>Product Image :</label>
           <br />
           <input
@@ -183,6 +185,7 @@ const AddProduct = () => {
             onChange={handleChange}
           />
           <br />
+
           <button value="Add Product">Add Product</button>
         </fieldset>
       </form>
