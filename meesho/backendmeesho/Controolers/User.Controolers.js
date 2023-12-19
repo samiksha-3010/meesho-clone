@@ -31,7 +31,6 @@ export const Register = async (req, res) => {
       });
   
       await user.save();
-  
       return res.json({
         success: true,
         message: "User Registered Successfully!",
