@@ -10,10 +10,12 @@ import { addCart, getCartProducts, removeCartItem } from './Controolers/Buyers.c
 
 
 
+
 const app = express();
 app.use(express.json())
 dotenv.config();
 app.use(cors())
+
 
 
 app.get("/", (req, res) => {

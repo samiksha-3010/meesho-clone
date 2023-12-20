@@ -128,7 +128,7 @@ const AddProduct = () => {
         // });
         if (response.data.success) {
           setProductData({ name: "", price: "", image: "", category: "" });
-          router("/your-product");
+          router("/all-product");
           toast.success(response.data.message);
         }
       } catch (error) {

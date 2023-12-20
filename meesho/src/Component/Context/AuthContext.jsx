@@ -36,7 +36,7 @@ const reducer = (state, action) => {
                          const response = await axios.post("http://localhost:8000/get-current-user", { token });
 
                     // const response = await api.post("/get-current-user", { token });
-                console.log(response.data,"-response data")
+                // console.log(response.data,"-response data")
                 if (response.data.success) {
                     dispatch({
                         type: "LOGIN",

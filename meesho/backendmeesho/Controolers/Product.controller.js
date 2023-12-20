@@ -188,7 +188,7 @@ export const getSingleProductData = async (req, res) => {
 
 export const addToCart = async (req, res) => {
   try {
-    const { productId, userId } = req.body;
+    const { productId, userId } = req.body.productData;
     if (!productId) return res.status(404).json({ success: false, message: "Product id is mandtory.." })
     if (!userId) return res.status(404).json({ success: false, message: "User id is mandtory.." })
 
