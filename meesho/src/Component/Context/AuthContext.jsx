@@ -1,6 +1,5 @@
 
-// import axios from "axios";
-// import api from "../ApiConfig/Index"
+
 import { createContext, useEffect, useReducer } from "react";
 import api from "../ApiConfig/Index";
 import toast from "react-hot-toast";
@@ -14,11 +13,11 @@ const reducer = (state, action) => {
     switch (action.type) {
         case 'LOGIN':
             return { ...state, user: action.payload }
-        case 'LOGOUT':
-            return { ...state, user: null }
 
+        case 'LOGOUT':
             localStorage.removeItem("token")
             toast.success("Logout success.")
+        return { ...state, user: null }
         default:
             return state
     }
@@ -44,7 +43,8 @@ const reducer = (state, action) => {
                     })
                 } else {
                     dispatch({
-                        type: "LOGOUT"
+                        type: "LOGOUT",
+                        
                     });
                 }
                 } catch (error) {

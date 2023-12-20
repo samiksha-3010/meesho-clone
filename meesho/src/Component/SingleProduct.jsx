@@ -6,6 +6,7 @@ import { AuthContext } from "./Context/AuthContext";
 import "./SingleProduct.css";
 import axios from "axios";
 import toast from "react-hot-toast";
+import { AiTwotoneStar } from "react-icons/ai";
 
 const SingleProduct = () => {
   const [isUserLoggedIn, setIsLoggedIn] = useState(false);
@@ -25,7 +26,7 @@ const SingleProduct = () => {
     cetegory: "other",
   });
 
-  console.log(state,"state here");
+  // console.log(state,"state here");
 
   useEffect(() => {
     if (id) {
@@ -64,7 +65,7 @@ const SingleProduct = () => {
   async function addToCart(productId) {
     console.log(productId);
     try {
-      const response = await axios.post("http://localhost:8000/add-to-cart", {
+      const response = await axios.post("http://localhost:8000/add-cart", {
         productId,
         userId: state?.user?._id,
       });
@@ -76,9 +77,39 @@ const SingleProduct = () => {
       console.log(error.message);
     }
   }
-  console.log(single, "single");
+  console.log(products, "products");
 
   // *****************************add to cart*********************
+
+  // ----------------------------**deleteProduct**------------------------------------------
+        
+
+
+const deleteProduct = async (productId) => {
+  try {
+    const token = JSON.parse(localStorage.getItem("token"));
+    console.log(token, "token here");
+    const response = await axios.post("http://localhost:8000/delete-your-product",
+      {
+        productId,
+        token,
+      }
+    );
+    console.log(response,"data here");
+    if (response.data.success) {
+      toast.success("item removed succesfully");
+      setSingle(response.data.user);
+    } else {
+      toast.error( response.data.message);
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+// console.log(state);
+   
+  // ----------------------------**deleteProduct**------------------------------------------
 
   // *****************************Update Product*********************
 
@@ -116,7 +147,7 @@ const SingleProduct = () => {
     }
   }
 
-  console.log(products, "products");
+  // console.log(products, "products");
 
   // **************************Update Product*********************
 
@@ -188,7 +219,7 @@ const SingleProduct = () => {
       >
         <img style={{ border: "5px solid red" }} src={single.image} />
         <div style={{ border: "5px solid red", width: "50%" }}>
-          <h2>Name:{single.name}</h2>
+          <h2>Name: <AiTwotoneStar /> {products.name}</h2>
           <h2>Price:{single.price} </h2>
           <p>Cetegory:{single.Cetegory}</p>
           <button onClick={() => addToCart(single._id)}>Add to Cart</button>
@@ -196,6 +227,8 @@ const SingleProduct = () => {
           {/* <button  style={{ width:"30%", height: "40px" ,backgroundColor: "black", color: "white" ,borderRadius:"50px",marginLeft: "30px"}}  onClick={addToCart}>add to cart</button> */}
 
           <button onClick={() => uptoDate(single._id)}>Update Product</button>
+          <button onClick={()=>deleteProduct(single._id)}>Delete</button>
+
           <div id="slectsize">
             <p>Select Size</p>
             <p>Select Giude</p>
@@ -250,7 +283,9 @@ const SingleProduct = () => {
           {/* ************************************* */}
         </div>
         {userData?.role === "seller" ? (
-          <div>{/* <button onClick={Update}>Update</button> */}</div>
+          <div>
+            {/* {<button onClick={Update}>Update</button>} */}
+          </div>
         ) : (
           <div>
             <div className="more-puma">

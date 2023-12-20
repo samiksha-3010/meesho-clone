@@ -35,7 +35,7 @@ app.get("/all-products", allProduct);
 
 app.post("/get-your-products", checkSeller, getYourProducts);
 app.post("/update-your-product", checkSeller, updateYourProduct);
-app.post("/add-cart", addToCart);
+app.post("/add-cart", addToCart); // right
 
 app.post("/get-single-product-data", getSingleProductData);
 

@@ -5,7 +5,7 @@ import UserModals from "../Modals/User.Modals.js";
 
 export const addProduct = async (req, res) => {
   try {
-    const { name, price, image, category } = req.body.productData;
+    const { name, price, image, category } = req.body;
     const { token } = req.body;
     if (!name || !price || !image || !category || !token) return res.status(404).json({ success: false, message: "All fields are mandtory.." })
     
@@ -78,7 +78,7 @@ export const getYourProducts = async (req, res) => {
 
 export const updateYourProduct = async (req, res) => {
     try {
-        const { productId, name, image, price, category, token } = req.body;
+        const { productId, name, image, price, category, token } = req.body.productData;
         if (!token) return res.status(404).json({ success: false, message: "Token is mandtory.." })
 
         const decodedData = jwt.verify(token, process.env.JWT_SECRET)
@@ -105,7 +105,7 @@ export const updateYourProduct = async (req, res) => {
 
 export const deleteYourProduct = async (req, res) => {
   try {
-      const { productId, token } = req.body;
+      const { productId, token } = req.body.productData;
 
       if (!productId) return res.status(404).json({ success: false, message: "Product id is mandtory.." })
 
@@ -188,7 +188,7 @@ export const getSingleProductData = async (req, res) => {
 
 export const addToCart = async (req, res) => {
   try {
-    const { productId, userId } = req.body.productData;
+    const { productId, userId } = req.body;
     if (!productId) return res.status(404).json({ success: false, message: "Product id is mandtory.." })
     if (!userId) return res.status(404).json({ success: false, message: "User id is mandtory.." })
 

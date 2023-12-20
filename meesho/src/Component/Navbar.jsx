@@ -27,12 +27,20 @@ const Navbar = () => {
            
            
             <div>
-                <i class="fa-regular fa-user fa-xl"  onClick={() => router('/login')}></i>
-                    <i class="fa-solid fa-cart-shopping fa-xl "  onClick={() => router('/cart')}></i>
+                {/* <i class="fa-regular fa-user fa-xl"  onClick={() => router('/login')}></i> */}
+                    <i class="fa-solid fa-cart-shopping fa-xl "  onClick={() => router('/add-cart')}></i>
                 
                         {/* <i class="fa-solid fa-heart fa-xl"></i> */}
-                        <div  onClick={() => router('/add-product')}>Add Product </div>
-                        <p onClick={() => dispatch({ type: 'LOGOUT' })}>Logout</p>
+                    
+                        {/* <p onClick={() => dispatch({ type: 'LOGOUT' })}>Logout</p> */}
+
+
+                        {state?.user?.name ? <>
+                    {/* {state?.user?.role == "Buyer" && <h4>Cart</h4>} */}
+                    <h4 onClick={() => router('/profile')}>Profile</h4>
+                    <div  onClick={() => router('/add-product')}>+ </div>
+                    <p onClick={() => dispatch({ type: 'LOGOUT' })}>Logout</p>
+                </> : <i class="fa-regular fa-user fa-xl"  onClick={() => router('/login')}></i>}
 
             </div>
         </div>
