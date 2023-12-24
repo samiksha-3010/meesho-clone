@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { AuthContext } from "./Context/AuthContext";
 import api from "./ApiConfig/Index";
 import axios from "axios";
+import './Register.css'
 
 const Login = () => {
   const { state, dispatch } = useContext(AuthContext);
@@ -65,65 +66,54 @@ const Login = () => {
   };
 
   return (
-    <div
-      style={{
-        marginTop: "80px",
-        marginLeft: "60%",
-        width: "27%",
-        height: "600px",
-        border: "1px solid black ",
-      }}
-    >
-      <img
-        style={{ width: "100%", height: "280px" }}
-        src="https://images.meesho.com/images/marketing/1661417516766.webp "
-      />
-      <p style={{ fontSize: "20px" }}>
-        {" "}
-        <b>Sing.up your profile</b>
-      </p>
-      <form onSubmit={handleSubmit}>
-        <lable style={{ marginLeft: "10px" }}>Email:</lable>
-        <br />
-        <input
-          value={userData.email}
-          style={{ width: "90%", height: "30px" }}
-          type="email"
-          name="email"
-          onChange={handleChange}
-        />
-        <br />
-        <label>Password</label>
-        <br />
-        <input
-          value={userData.password}
-          style={{ width: "90%", height: "30px" }}
-          type="password"
-          onChange={handleChange}
-          name="password"
-        />
-        <br />
-        <input
-          style={{
-            width: "60%",
-            height: "40px",
-            marginTop: "40px",
-            marginLeft: "70px",
-            backgroundColor: "purple",
-            color: "white",
-          }}
-          type="submit"
-          value="Login"
-        />
-        <br />
-      </form>
-      <p
-        style={{ marginTop: "20px", color: "red" }}
-        onClick={() => router("/register")}
-      >
-        New Register here ?{" "}
-      </p>
+    <div id="logscreen">
+      <div id="logbody">
+        <div>
+          <img src="https://images.meesho.com/images/marketing/1661417516766.webp" />
+        </div>
+        <div>
+          <p>Log In to view your profile</p>
+        </div>
+        <div id="logform">
+          <form
+          onSubmit={handleSubmit}
+          >
+            <label>Enter your Email ID :</label>
+            <br />
+            <input
+              type="email"
+              name="email"
+              value={userData.email}
+              onChange={handleChange}
+            />
+            <br />
+            <label>Enter your Password :</label>
+            <br />
+            <input
+              type="password"
+              name="password"
+              value={userData.password}
+              onChange={handleChange}
+            />
+            <br />
+            <button>LOGIN</button>
+          </form>
+        </div>
+        <div>
+      <span>Do not have an Account?</span>
+        <span onClick={()=>router('/register')}>Register</span>
+      </div>
+      
+      <div>
+        <p>By continuing, you agree to Meesho's</p>
+        <span>Terms and Conditions</span>
+        <span>and </span>
+        <span>Privacy Policy</span>
+      </div>
     </div>
+        
+      </div>
+      
   );
 };
 

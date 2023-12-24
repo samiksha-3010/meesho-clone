@@ -38,7 +38,6 @@ const Register = () => {
                 } else {
                     toast.error(response.data.message)
                 }
-    
             } else {
                 toast.error("Password and Confirm Password not Matched.")
             }
@@ -46,7 +45,6 @@ const Register = () => {
             toast.error("All fields are mandtory.")
         }
     }
-    
   return (
     <div style={{ marginTop: "90px"}}>
          <div id="logscreen">

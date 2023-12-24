@@ -2,13 +2,12 @@ import React, { useContext, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import './Navbar.css'
 import {AuthContext} from "../Component/Context/AuthContext"
-import { toast } from "react-hot-toast";
-
+// import { toast } from "react-hot-toast";
 const Navbar = () => { 
     const router = useNavigate();
     const { state, dispatch } = useContext(AuthContext)
+    console.log(state,"state")
   return (
-
     <div>
                 <div id="navbar">
             <div>
@@ -22,22 +21,12 @@ const Navbar = () => {
                 <i class="fa-solid fa-mobile-screen-button"></i>
                 Download App
             </div>
-           
             <p style={{marginTop:"25px"}}>Become a Supplier</p>
-           
-           
             <div>
-                {/* <i class="fa-regular fa-user fa-xl"  onClick={() => router('/login')}></i> */}
                     <i class="fa-solid fa-cart-shopping fa-xl "  onClick={() => router('/add-cart')}></i>
-                
-                        {/* <i class="fa-solid fa-heart fa-xl"></i> */}
-                    
-                        {/* <p onClick={() => dispatch({ type: 'LOGOUT' })}>Logout</p> */}
-
-
                         {state?.user?.name ? <>
-                    {/* {state?.user?.role == "Buyer" && <h4>Cart</h4>} */}
-                    <h4 onClick={() => router('/profile')}>Profile</h4>
+                    {/* {state?.user?.role == "Buyer" && <h4>onClick={() => router('/add-cart')}</h4>} */}
+                    <h4 onClick={() => router('/profile')}>{state.user.name}</h4>
                     <div  onClick={() => router('/add-product')}>+ </div>
                     <p onClick={() => dispatch({ type: 'LOGOUT' })}>Logout</p>
                 </> : <i class="fa-regular fa-user fa-xl"  onClick={() => router('/login')}></i>}
@@ -57,7 +46,7 @@ export default Navbar
 // import { useNavigate } from "react-router-dom";
 // import { v4 as uuidv4 } from "uuid";
 // import { toast } from "react-hot-toast";
-// import './Navbar.css'
+// import './Home.css'
 // // import "./Cssfile/HomeNavbar.css";
 
 // import api from "./ApiConfig/Index"
