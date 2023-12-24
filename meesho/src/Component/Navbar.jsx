@@ -6,7 +6,7 @@ import {AuthContext} from "../Component/Context/AuthContext"
 const Navbar = () => { 
     const router = useNavigate();
     const { state, dispatch } = useContext(AuthContext)
-    console.log(state,"state")
+    // console.log(state,"state")
   return (
     <div>
                 <div id="navbar">

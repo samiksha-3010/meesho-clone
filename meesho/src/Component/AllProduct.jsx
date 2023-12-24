@@ -24,7 +24,7 @@ const AllProduct = () => {
     getproduct();
   }, []);
   const redirect = (id) => {
-    console.log(id, "-id")
+    // console.log(id, "-id")
     router(`/singleproduct/${id}`);
   };
   return (

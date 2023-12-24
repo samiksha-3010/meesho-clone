@@ -77,7 +77,7 @@ const SingleProduct = () => {
       console.log(error.message);
     }
   }
-  console.log(products, "products");
+  // console.log(products, "products");
 
   // *****************************add to cart*********************
 

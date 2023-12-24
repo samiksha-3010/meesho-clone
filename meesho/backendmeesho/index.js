@@ -2,7 +2,7 @@ import express from 'express';
 import dotenv from 'dotenv'
 import mongoose from 'mongoose';
 import cors from "cors"
-import {  Login, Register, getCurrentUser,} from "./Controolers/User.Controolers.js"
+import {  Login, Register, checkOut, getCurrentUser,} from "./Controolers/User.Controolers.js"
 import { addComments, addProduct, addRating, addToCart, allCartProducts, allProduct, deleteYourProduct, getSingleProductData, getYourProducts, updateYourProduct } from './Controolers/Product.controller.js';
 import { checkSeller, isAdmin, isValidUser } from './Meedlewares/All.Meedlewares.js';
 import { blockProduct, blockUser, getAllBuyers, getAllProducts, getAllSellers, getUnVerifiedProducts, getVerifiedProducts, unBlockProduct, unBlockUser, verifyProduct } from './Controolers/Admin.controller.js';
@@ -71,6 +71,8 @@ app.patch("/get-un-verify-product", isAdmin, getUnVerifiedProducts);
 
 
 app.patch("/add-comments", isValidUser, addComments);
+app.post("/checkout", checkOut);
+
 
 
 

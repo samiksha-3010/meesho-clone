@@ -138,7 +138,7 @@ const Cart = () => {
   const [cartProducts, setCartProducts] = useState([]);
   const { state } = useContext(AuthContext);
 
-  console.log(state, "state here");
+  // console.log(state, "state here");
 
   useEffect(() => {
     async function getCartProduct() {
@@ -158,7 +158,7 @@ const Cart = () => {
     }
   }, [state, cartProducts]);
 
-  console.log(cartProducts, "cartProducts here");
+  // console.log(cartProducts, "cartProducts here");
 
   const checkOut = async () => {
     const token = JSON.parse(localStorage.getItem("token"));
@@ -166,7 +166,7 @@ const Cart = () => {
       if (token) {
         console.log(token,"token here")
       try {
-        const response = await api.post("/checkOut", {token});
+        const response = await axios.post("http://localhost:8000/checkOut", {token});
         // console.log(response.data.success,"response here");
         if (response.data.success) {
           toast.success(response.data.message);
